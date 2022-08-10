@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+        .vermelho {
+            background-color: red;
+        }
+
+        .azul {
+            background-color: blue;
+        }
+
+        .branco {
+            background-color: white;
+        }
+
+        .verde {
+            background-color: green;
+        }
+
+        .borda {
+            border: 1px solid;
+        }
+
+        .div-principal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <a href="https://youtube.com.br" target="_blank" @click.prevent="prevenirComportamentoPadrao($event)">link</a>
+        <!--O PREVENT desativa o evento solicitado-->
+        <br>    
+        mensagem:  {{msg}}
+        <hr>
+        <button @click.once="executarUmavez()">CLIQUE AQUI!!!</button><!--o ONCE, faz com que só seja possivel clicar uma vez -->
+        <p>Cliques: {{ cliques }}</p>
+        <input type="text" @keyup.Shift.Enter="capturandoTeclas($event)">
+        <br>
+        tecla precionada: {{tecla}}
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg:'',
+                cliques:0,
+                tecla:''
+            },
+            methods: {
+                prevenirComportamentoPadrao(e){
+
+                    this.msg = 'comportamento padrão ativado'
+                },
+                executarUmavez(){
+                    this.cliques++
+                },
+                capturandoTeclas(e){
+                    this.tecla = 'sorria'
+
+                }
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

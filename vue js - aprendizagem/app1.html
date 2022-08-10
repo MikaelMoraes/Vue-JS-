@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+
+
+    <div id="app">
+        <input type="text" v-on:input="alterar">
+        <p> o aluno está: {{ titulo }}</p>
+        <p> a mensalidade é: {{valorTotal}}</p>
+        <p>o aluno é: {{verdadeiroFalso}}</p>
+        <p>o aluno gosta de:{{hobbies[0]}}</p>
+        <p>o nome do aluno é: {{perfil.nome}}</p>
+        <p>o curso é: {{perfil.cursos[0].nome}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                titulo: 'usando VueJS ',//string
+                valorTotal: 156.99,//num
+                verdadeiroFalso: true,//booleano
+                hobbies: ['dormir',//array
+                    'comer',
+                    'jogar',
+                    'exercitar',
+                    'estudar'],
+                perfil: {
+                    nome: 'mikael',
+                    site: 'google.com',
+                    idade: 21,
+                    cursos: [//array
+                        {
+                            nome: 'laravel',
+                            cargaHoraria: '50 horas'
+                        },
+                        {
+                            nome: 'vue js 3',
+                            cargaHoraria: '70 horas'
+                        }
+
+                    ]
+                }
+            },
+            methods: {
+                alterar(event) {
+                    this.titulo = event.target.value
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
