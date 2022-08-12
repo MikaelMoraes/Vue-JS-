@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <span>Nome:</span> <input type="text" id="inputName"><br>
+        <span>Idade:</span> <input type="text" id="inputIdade"><br>
+        <span>Plano:</span> <input type="text" id="inputPlano"><br>
+        <button @click="adicionar()">Adicionar paciente</button>
+        <hr>
+        <h4>Ultimo paciente cadastrado</h4>
+        <p v-if="pacientes.length > 0">
+           {{ultimo}}
+        </p>
+        <hr>
+        
+        <h4> Pacientes ouro</h4>
+        <p v-for="p in ouro">
+            {{ p.nome}}
+        </p>
+        <h4>Pacientes cadastrados</h4>
+        <p v-for="p in pacientes">{{p.nome}}</p>
+        
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                pacientes:[]
+
+            },
+            methods: {
+                adicionar(){
+                    this.pacientes.push({
+                        nome: inputName.value,
+                        idade: inputIdade.value,
+                        plano: inputPlano.value
+                    })
+                }
+
+
+            },
+            computed:{
+                ultimo(){
+                    let key =this.pacientes.length -1
+                    let txt = ''
+                    txt += 'paciente' + this.pacientes[key].nome
+                    txt += ' ,idade' + this.pacientes[key].idade
+                    txt += ' ,plano' + this.pacientes[key].plano
+                    return txt
+                },
+                ouro(){
+                    return this.pacientes.filter(
+                        item=> item.plano == 'Ouro'
+                    )
+                }
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>
