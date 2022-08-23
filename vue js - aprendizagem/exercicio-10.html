@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Manipulando Css com VueJS</h1>
+        <div :style="estilo">Definindo styles com objst</div>
+        <button @click="estilo.background = 'red'">mudança</button>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                estilo:{
+            background: 'blue',
+            width: 150 + 'px',
+            height: 100 + 'px',
+            padding: 10 + 'px',
+            fontSize: 30 + 'px'
+        }
+    
+            }
+        })
+    </script>
+
+</body>
+
+</html>
