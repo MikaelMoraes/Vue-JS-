@@ -1,10 +1,5 @@
 <template>
   <div>
-    <h1>Conteudo</h1>
-    <button @click="conteudo = 'Home'">Home</button>
-    <button @click="conteudo = 'Publicar'">Publicar</button>
-   <!-- <Home></Home>-->
-    <!--<Publicar></Publicar>-->
     <keep-alive>
       <component :is="conteudo"/>
     </keep-alive>
@@ -14,58 +9,20 @@
 
 <script>
 import Home from '@/components/Views/HomeMenu.vue'
-import Publicar from '@/components/Views/PublicarVaga.vue'
+import PublicarVaga from '@/components/comuns/PublicarVaga.vue'
 export default {
   name: 'ConteudoPadrao',
+  props:{
+    conteudo: {
+      type: String,
+      required: true
+    }
+  },
   components: {
     Home,
-    Publicar
-  },
-  data:()=>({
-   conteudo: 'Home' 
-  })/*,
-  methods:{
-
-  },
-  beforeCreate(){
-    consolo.log('antes de criar')
-  },
-  created(){
-    consolo.log('criado')
-  },
-  beforeMount(){
-    console.log('antes de montar')
-  },
-  mounted(){
-    console.log('montado')
-  },
-  beforeUpdate(){
-    console.log('antes de atualizar')
-  },
-  updated(){
-    console.log('Atualizado')
-  },
-  beforeUnmount(){
-    console.log('antes de desmontar/destruir')
-  },
-  unmounted(){
-    conosle.log('dDesmontado/Destruído')
-  },
-  errorCaptured(){
-    console.log('erro capturado')
-  },
-  renderTracked(){
-    console.log('Re-renderização rastreada')
-  },
-  renderTriggered(){
-    console.log('Re-renderização acionada')
-  },
-  activated(){
-    consoloe.log('Componente é ativado')
-  },
-  deactivated(){
-    console.log('componente é desativado')
-  }*/
+    PublicarVaga
+  }
+  
 }
 </script>
 

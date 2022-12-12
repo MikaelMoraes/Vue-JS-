@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link "  href="#">Home</a>
+          <a class="nav-link "  href="#" @click="navegarPara('Home')">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Publicar Vaga</a>
+          <a class="nav-link" href="#" @click="navegarPara('PublicarVaga')">Publicar Vaga</a>
         </li>
       </ul>
     </div>
@@ -21,7 +21,14 @@
 
 <script>
 export default{
-  name: 'TopoPadrao'
+  name: 'TopoPadrao',
+  methods:{
+    navegarPara(p){
+      this.$emit('navegar', p)
+    }
+  }
+
+  
 }
 
 </script>
